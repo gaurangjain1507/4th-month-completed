@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> 4th month completed 🎊🎉</title>
+  <title>4th month completed 🎊🎉</title>
   <style>
     * {
       margin: 0;
@@ -20,13 +20,15 @@
     .container {
       width: 90%;
       max-width: 700px;
+      max-height: 90vh;       /* fix height */
+      overflow-y: auto;       /* enable scroll */
       background: #fff8e1;
       padding: 30px 40px;
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
       position: relative;
       text-align: center;
-      animation: fadeIn 5s ease;
+      animation: fadeIn 2s ease;
     }
     .page {
       display: none;
@@ -44,6 +46,7 @@
       color: #5d4037;
       margin-bottom: 15px;
       line-height: 1.6;
+      text-align: left;   /* readable */
     }
     .heart {
       font-size: 40px;
@@ -70,7 +73,6 @@
       0%, 100% { transform: translateY(0);}
       50% { transform: translateY(-10px);}
     }
-
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -78,7 +80,7 @@
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="contentBox">
     <div class="page active" id="page1">
       <div class="heart">B(•)(•)I</div>
       <h2> 
@@ -137,7 +139,8 @@ Happy 4th month anniversary of relationship
     function nextPage() {
       document.getElementById("page1").classList.remove("active");
       document.getElementById("page2").classList.add("active");
+      document.getElementById("contentBox").scrollTop = 0; // always scroll to top
     }
   </script>
 </body>
-  </html>
+   </html>
